@@ -1,0 +1,30 @@
+{
+  "name": "londoncalling",
+  "description": "London Calling Mono Repository",
+  "keywords": [],
+  "author": {
+    "name": "Nuno Pereira",
+    "email": "iamnunopereira@gmail.com"
+  },
+  "contributors": [],
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.12.2",
+    "eslint": "^8.56.0",
+    "eslint-config-custom": "*",
+    "prettier": "^3.2.4",
+    "turbo": "latest"
+  },
+  "workspaces": [
+    "apis/*",
+    "apps/*",
+    "packages/*"
+  ]
+}
