@@ -1,30 +1,63 @@
 {
-  "name": "londoncalling",
-  "description": "London Calling Mono Repository",
-  "keywords": [],
+  "name": "arecordstore",
+  "description": "A full functional record shop web app",
+  "keywords": [
+    "react",
+    "nextjs",
+    "typescript",
+    "firebase",
+    "prisma",
+    "mongodb"
+  ],
   "author": {
     "name": "Nuno Pereira",
     "email": "iamnunopereira@gmail.com"
   },
   "contributors": [],
-  "version": "0.1.0",
+  "version": "0.0.3",
   "private": true,
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "precommit": "lint-staged",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.0",
+    "firebase": "^10.8.0",
+    "next": "14.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
-    "@turbo/gen": "^1.12.2",
-    "eslint": "^8.56.0",
-    "eslint-config-custom": "*",
-    "prettier": "^3.2.4",
-    "turbo": "latest"
-  },
-  "workspaces": [
-    "apis/*",
-    "apps/*",
-    "packages/*"
-  ]
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "prisma": "^5.10.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
+  }
 }

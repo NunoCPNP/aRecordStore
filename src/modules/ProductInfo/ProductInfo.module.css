@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: 1.4fr 2fr;
+  gap: 5rem;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.infoContainer {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.artist {
+  font-size: 3.2rem;
+}
+
+.price {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 1rem 6rem;
+  color: var(--white);
+  background-color: var(--blue);
+  border-radius: var(--radius);
+  border: none;
+  outline: none;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.icon {
+  font-size: 2rem;
+  margin-right: 1.2rem;
+}

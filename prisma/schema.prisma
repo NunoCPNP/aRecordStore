@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  date_added   String
+  artist       String
+  title        String
+  format       Format   @default(VINYL)
+  country      String
+  year         Int
+  label        String
+  catno        String
+  genres       String[]
+  status       Status   @default(USED)
+  cover_status Int
+  item_status  Int
+  thumb        String
+  cover_image  String
+  price        Int
+  stock        Int
+  notes        String
+}
+
+enum Format {
+  VINYL
+  CD
+}
+
+enum Status {
+  USED
+  NEW
+}

@@ -1,0 +1,8 @@
+.main {
+  background-color: var(--background);
+  padding: 0 16rem 6rem 16rem;
+  
+  @media (max-width: 1200px) {
+    padding: 0 4rem 6rem 4rem;
+  }
+}

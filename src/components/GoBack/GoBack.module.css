@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: #617480;
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 0.8rem;
+  font-size: 2.4rem;
+}
