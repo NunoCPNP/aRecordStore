@@ -1,7 +1,5 @@
-import { db } from '@/lib/firebase'
 import { ProductType } from '@/shared/types'
 import { ProductInfo } from '@/modules'
-import { doc, getDoc } from 'firebase/firestore'
 
 type ProductTypes = {
   params: {
@@ -11,16 +9,6 @@ type ProductTypes = {
 
 async function getData({ params }: ProductTypes) {
   const { id } = params
-
-  const docRef = doc(db, 'records', id)
-  const docSnap = await getDoc(docRef)
-
-  if (docSnap.exists()) {
-    return {
-      data: docSnap.data(),
-      error: null,
-    }
-  }
 
   return {
     data: null,

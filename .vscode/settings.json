@@ -2,8 +2,11 @@
     "editor.formatOnSave": true,
     "cSpell.words": [
         "catno",
+        "commitlint",
         "discogs",
         "firestore",
+        "nextjs",
+        "precommit",
         "Saira",
         "tsup"
     ]

@@ -3,16 +3,15 @@ export interface ProductType {
   date_added: string
   artist: string
   title: string
-  format: 'VINYL' | 'CD'
+  format: 'vinyl' | 'cd'
   country: string
   year: number
   label: string
   catno: string
   genres: string[]
-  status: 'USED' | 'NEW'
+  status: 'used' | 'new'
   cover_status: number
   item_status: number
-  thumb: string
   cover_image: string
   price: number
   stock: number

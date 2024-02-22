@@ -12,16 +12,15 @@ model Product {
   date_added   String
   artist       String
   title        String
-  format       Format   @default(VINYL)
+  format       Format
   country      String
   year         Int
   label        String
   catno        String
   genres       String[]
-  status       Status   @default(USED)
+  status       Status
   cover_status Int
   item_status  Int
-  thumb        String
   cover_image  String
   price        Int
   stock        Int
@@ -29,11 +28,11 @@ model Product {
 }
 
 enum Format {
-  VINYL
-  CD
+  vinyl
+  cd
 }
 
 enum Status {
-  USED
-  NEW
+  used
+  new
 }

@@ -29,7 +29,7 @@ export const ProductInfo = ({ data }: ProductInfo) => {
           <div>{data.label}</div>
           <div>{data.country}</div>
           <div>{data.year}</div>
-          <div>{data.canto}</div>
+          <div>{data.catno}</div>
           <div className={styles.price}>{data.price} €</div>
         </div>
         <div>
