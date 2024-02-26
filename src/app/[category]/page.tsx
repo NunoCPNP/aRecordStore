@@ -11,15 +11,15 @@ async function getData({ params }: PageTypes) {
 
   const filter = category === 'all' ? {} : { where: { status: { equals: category } } }
 
-  const data = await prisma.product.findMany(filter as any)
+  const products = await prisma.product.findMany(filter as any)
 
   return {
-    data,
+    products,
   }
 }
 
 const Home = async ({ params }: PageTypes) => {
-  const { data } = await getData({ params })
+  const { products } = await getData({ params })
 
   return (
     <>
@@ -27,7 +27,7 @@ const Home = async ({ params }: PageTypes) => {
         <CategorySelector category={params.category} />
       </Box>
       <Box pt={3.2} as="section">
-        <ProductListing data={data} />
+        <ProductListing products={products} />
       </Box>
     </>
   )

@@ -46,6 +46,7 @@ html {
 
 body {
   font-size: var(--baseFontSize);
+  background-color: var(--background);
 }
 
 input,
@@ -58,4 +59,9 @@ select {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+main {
+  max-width: 120rem;
+  margin: 0 auto;
 }

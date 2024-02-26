@@ -1,25 +1,43 @@
 import { Box } from '@/components'
 import { prisma } from '@/lib/prisma'
-import { CategorySelector, Pagination, ProductListing } from '@/modules'
+import { CategorySelector, ProductListing, Pagination } from '@/modules'
 
 async function getData() {
-  const data = await prisma.product.findMany()
+  try {
+    const [count, products] = await prisma.$transaction([
+      prisma.product.count(),
+      prisma.product.findMany({
+        take: 12,
+      }),
+    ])
 
-  return {
-    data,
+    return {
+      count,
+      products,
+      error: null,
+    }
+  } catch (error) {
+    return {
+      count: 0,
+      products: [],
+      error,
+    }
   }
 }
 
 const Home = async () => {
-  const { data } = await getData()
+  const { products, count } = await getData()
 
   return (
     <>
       <Box pt={3.4}>
         <CategorySelector />
       </Box>
+      <Box pt={2.4}>
+        <Pagination count={count} />
+      </Box>
       <Box pt={3.2} as="section">
-        <ProductListing data={data} />
+        <ProductListing products={products} />
       </Box>
     </>
   )

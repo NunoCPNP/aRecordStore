@@ -1,12 +1,18 @@
 # A Record Store
 
+Full featured web application for demonstration purposes
+
+![ARecordStorePreview ](./images/screely-1708696385127.png)
+
 ## Features
 
-A Record Store wWeb application is built using:
+A Record Store web application is built using:
 
 - React
 - Typescript
+- Prisma
 
+Connected to a mongodb database
 
 ## Clone repository
 

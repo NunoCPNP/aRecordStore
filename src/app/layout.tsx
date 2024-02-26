@@ -3,7 +3,6 @@ import { ReactNode } from 'react'
 import { Saira } from 'next/font/google'
 import { Footer, Header } from '@/modules'
 
-import styles from './layout.module.css'
 import '@/styles/global.css'
 
 const inter = Saira({ subsets: ['latin'] })
@@ -22,7 +21,7 @@ export default function RootLayout({ children }: RootLayoutTypes) {
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main className={styles.main}>{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

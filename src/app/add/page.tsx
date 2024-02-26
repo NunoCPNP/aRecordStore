@@ -3,7 +3,7 @@ import { productData } from './productData'
 
 const setPost = async () => {
   try {
-    productData.map(async (product: any) => {
+    productData().map(async (product: any) => {
       const data = await prisma.product.create({
         data: product,
       })

@@ -7,17 +7,14 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 import styles from './Pagination.module.css'
 
 type PaginationTypes = {
-  category: string
-  page: number
-  totalPosts: number
-  postsPerPage: number
+  count: number
 }
 
-export const Pagination = ({ category, page, totalPosts, postsPerPage }: PaginationTypes) => {
+export const Pagination = ({ count }: PaginationTypes) => {
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
   const router = useRouter()
 
-  const totalPages = Math.ceil(totalPosts / postsPerPage)
+  const totalPages = Math.ceil(count / 12)
 
   useEffect(() => {
     const temp: number[] = []
@@ -34,38 +31,17 @@ export const Pagination = ({ category, page, totalPosts, postsPerPage }: Paginat
     <div className={styles.container}>
       <ul className={styles.list}>
         {pageNumbers.map((number) => (
-          <li
-            key={number}
-            className={Number(page) === number ? styles.selected : styles.item}
-            onClick={() => router.push(`/?category=${category}&page=${number}`)}
-          >
+          <li key={number} className={number === 1 ? styles.selected : styles.item}>
             {number}
           </li>
         ))}
       </ul>
       {pageNumbers.length > 0 && (
         <ul className={styles.controls}>
-          <li
-            className={styles.item}
-            onClick={() => {
-              const array = [...pageNumbers]
-              array[0] > 1 && array.unshift(array[0] - 1)
-
-              setPageNumbers(array)
-            }}
-          >
+          <li className={styles.item}>
             <FiChevronLeft />
           </li>
-          <li
-            className={styles.item}
-            onClick={() => {
-              const array = [...pageNumbers]
-
-              array.length < totalPages && array.shift()
-
-              setPageNumbers(array)
-            }}
-          >
+          <li className={styles.item}>
             <FiChevronRight />
           </li>
         </ul>
