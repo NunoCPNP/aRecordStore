@@ -1,6 +1,9 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { ProductType } from '@/shared/types'
+import { usePathname } from 'next/navigation'
 
 import styles from './ProductCard.module.css'
 
@@ -9,8 +12,12 @@ type ProductCardTypes = {
 }
 
 export const ProductCard = ({ product }: ProductCardTypes) => {
+  const pathname = usePathname()
+
+  const id = pathname === '/' ? product.id : `/${product.id}`
+
   return (
-    <Link href={`/${product.id}`} className={styles.container}>
+    <Link href={`${pathname}${id}`} className={styles.container}>
       <div className={styles.image}>
         <Image
           src={product.cover_image}
