@@ -13,10 +13,10 @@
   transform: scale(1.02);
 }
 
-.image {
-  object-fit: coverI;
-  width: 100%;
-  height: 100%;
+.image img {
+  object-fit: cover;
+  width: 25rem;
+  height: 25rem;
 }
 
 .info {

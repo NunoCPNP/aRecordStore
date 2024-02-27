@@ -1,3 +1,9 @@
+import type { ReactNode } from 'react'
+
+export interface ComponentWithChildren {
+  children: ReactNode
+}
+
 export interface ProductType {
   id: string
   date_added: string

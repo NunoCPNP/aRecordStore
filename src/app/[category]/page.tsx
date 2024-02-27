@@ -2,6 +2,24 @@ import { Box } from '@/components'
 import { prisma } from '@/lib/prisma'
 import { CategorySelector, ProductListing, Pagination } from '@/modules'
 
+type GenerateMetadataTypes = {
+  params: {
+    category: 'all' | 'used' | 'new'
+  }
+}
+
+export async function generateMetadata({ params }: GenerateMetadataTypes) {
+  const categories = {
+    new: 'Discos Novos',
+    used: 'Discos Usados',
+    all: 'Todos os Discos',
+  }
+
+  return {
+    title: categories[params.category],
+  }
+}
+
 type GetDataTypes = {
   params: {
     category?: 'used' | 'new' | 'all'

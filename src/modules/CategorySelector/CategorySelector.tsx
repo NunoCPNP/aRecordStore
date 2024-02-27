@@ -11,21 +11,23 @@ type CategorySelectorTypes = {
   category?: string
 }
 
-export const CategorySelector = ({ category }: CategorySelectorTypes) => {
+export const CategorySelector = ({ category: activeCategory }: CategorySelectorTypes) => {
   const router = useRouter()
   const t = getLanguages()
-
-  const activeCategory = category || 'all'
 
   return (
     <div className={styles.container}>
       <div>
         <ul className={styles.list}>
-          {categories.map((category) => (
-            <li key={category.id} className={activeCategory === category.category ? styles.selected : styles.item}>
-              <a onClick={() => router.push(`/${category.category}`)}>{t[category.name]}</a>
-            </li>
-          ))}
+          {categories.map((category) => {
+            const url = category.category ? `/${category.category}` : '/'
+
+            return (
+              <li key={category.id} className={activeCategory === category.category ? styles.selected : styles.item}>
+                <a onClick={() => router.push(url)}>{t[category.name]}</a>
+              </li>
+            )
+          })}
         </ul>
       </div>
       <div className={styles.dropdown}>

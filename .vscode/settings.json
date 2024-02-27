@@ -8,6 +8,7 @@
         "nextjs",
         "precommit",
         "Saira",
+        "therecordstore",
         "tsup"
     ]
 }

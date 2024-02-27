@@ -2,7 +2,7 @@ export const categories = [
   {
     id: 'cat_001',
     name: 'category_all',
-    category: 'all',
+    category: undefined,
   },
   {
     id: 'cat_002',

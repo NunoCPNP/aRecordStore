@@ -1,18 +1,11 @@
 import { Box } from '@/components'
 import { prisma } from '@/lib/prisma'
+import type { HomeTypes } from './page.types'
 import { CategorySelector, ProductListing, Pagination } from '@/modules'
 
-type GetDataTypes = {
-  params: undefined
-  searchParams: {
-    page: number
-  }
-}
-
-async function getData({ params, searchParams }: GetDataTypes) {
-  const itemsPerPage = 12
-
+async function getData({ params, searchParams }: HomeTypes) {
   const { page = 1 } = searchParams
+  const itemsPerPage = 12
 
   try {
     const [count, products] = await prisma.$transaction([
@@ -34,13 +27,6 @@ async function getData({ params, searchParams }: GetDataTypes) {
       products: [],
       error,
     }
-  }
-}
-
-type HomeTypes = {
-  params: undefined
-  searchParams: {
-    page: number
   }
 }
 

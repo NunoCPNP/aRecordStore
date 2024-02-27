@@ -1,34 +1,35 @@
-# A Record Store
+# The Record Store
 
 Full featured web application for demonstration purposes
 
-![ARecordStorePreview ](./images/screely-1708696385127.png)
+![TheRecordStorePreview ](./images/screely-1708696385127.png)
 
 ## Features
 
-A Record Store web application is built using:
+A Record Store web application built using:
 
-- React
+- NextJS
 - Typescript
+- CSS modules
 - Prisma
 
 Connected to a mongodb database
 
 ## Clone repository
 
-Create a new folder named for example "arecordstore" and clone the repository into it
+Create a new folder named for example "therecordstore" and clone the repository into it
 
-run `mkdir arecordstore && cd arecordstore`
+run `mkdir therecordstore && cd therecordstore`
 
-run `git clone https://github.com/NunoCPNP/arecordstore.git .`
+run `git clone https://github.com/NunoCPNP/therecordstore.git .`
 
-run `pnpm install`
+run `npm install`
 
 ## Available Scripts
 
-`pnpm start` Start application in development mode
+`npm start` Start application in development mode
 
-`pnpm test` Run application unit tests
+`npm test` Run application unit tests
 
 ## Folder Structure
 
