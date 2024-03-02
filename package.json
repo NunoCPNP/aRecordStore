@@ -22,7 +22,10 @@
     "start": "next start",
     "lint": "next lint",
     "precommit": "lint-staged",
+    "postinstall": "prisma generate",
     "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "prisma:studio": "prisma studio",
     "test": "jest",
     "test:watch": "jest --watch",
     "type-check": "tsc"
