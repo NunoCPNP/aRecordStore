@@ -6,9 +6,12 @@
         "discogs",
         "firestore",
         "nextjs",
+        "nuqs",
         "precommit",
         "Saira",
+        "testid",
         "therecordstore",
-        "tsup"
+        "tsup",
+        "Vercel"
     ]
 }

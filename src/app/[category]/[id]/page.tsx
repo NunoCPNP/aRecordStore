@@ -1,25 +1,16 @@
 import { ProductType } from '@/shared/types'
 import { ProductInfo } from '@/modules'
+import { getRecord } from '@/shared/services'
+import { PageTypes, GetDataTypes } from './page.types'
 
-type ProductTypes = {
-  params: {
-    id: string
-  }
+async function getData({ params }: GetDataTypes) {
+  return await getRecord({ params })
 }
 
-async function getData({ params }: ProductTypes) {
-  const { id } = params
+const Page = async ({ params }: PageTypes) => {
+  const { product } = await getData({ params })
 
-  return {
-    data: null,
-    error: 'Document not found',
-  }
+  return <ProductInfo data={product as ProductType | null} />
 }
 
-const Product = async ({ params }: ProductTypes) => {
-  const { data } = await getData({ params })
-
-  return <ProductInfo data={data as ProductType | null} />
-}
-
-export default Product
+export default Page

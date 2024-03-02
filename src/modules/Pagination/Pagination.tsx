@@ -1,44 +1,47 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import type { PaginationTypes } from './Pagination.types'
+import { useEffect, useMemo, useState } from 'react'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import styles from './Pagination.module.css'
 
-type PaginationTypes = {
-  count: number
-}
-
 export const Pagination = ({ count }: PaginationTypes) => {
   const [pageNumbers, setPageNumbers] = useState<number[]>([])
-
   const router = useRouter()
-  const searchParams = useSearchParams()
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const [start, setStart] = useState(0)
+  const [end, setEnd] = useState(5)
 
-  const page = Number(searchParams.get('page')) || 1
+  const page = searchParams.get('page') || 1
+  const filter = searchParams.get('filter')
   const totalPages = Math.ceil(count / 12)
 
+  const buildUrl = useMemo(() => {
+    return (page: number, filter: string) => router.push(`${pathname}?page=${page}${filter ? `&filter=${filter}` : ''}`)
+  }, [page, filter])
+
   useEffect(() => {
-    const temp: number[] = []
+    const pagesNumbers: number[] = []
 
     for (let i = 1; i <= totalPages; i++) {
-      temp.push(i)
+      pagesNumbers.push(i)
     }
 
-    setPageNumbers(temp)
+    setPageNumbers(pagesNumbers)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {pageNumbers.map((number) => (
+        {[...pageNumbers].slice(start, end).map((number) => (
           <li
             key={number}
-            onClick={() => router.push(`${pathname}?page=${number}`)}
-            className={number === page ? styles.selected : styles.item}
+            onClick={() => buildUrl(number, filter!)}
+            className={number === Number(page) ? styles.selected : styles.item}
           >
             {number}
           </li>
@@ -46,10 +49,24 @@ export const Pagination = ({ count }: PaginationTypes) => {
       </ul>
       <ul className={styles.controls}>
         <li className={styles.item}>
-          <FiChevronLeft onClick={() => page > 1 && router.push(`${pathname}?page=${page - 1}`)} />
+          <FiChevronLeft
+            onClick={() => {
+              if (start > 0) {
+                setStart((s) => s - 1)
+                setEnd((e) => e - 1)
+              }
+            }}
+          />
         </li>
         <li className={styles.item}>
-          <FiChevronRight onClick={() => page < totalPages && router.push(`${pathname}?page=${page + 1}`)} />
+          <FiChevronRight
+            onClick={() => {
+              if (end < totalPages) {
+                setStart((s) => s + 1)
+                setEnd((e) => e + 1)
+              }
+            }}
+          />
         </li>
       </ul>
     </div>

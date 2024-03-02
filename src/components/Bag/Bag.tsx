@@ -1,10 +1,7 @@
+import type { BagTypes } from './Bag.types'
 import { FiShoppingBag } from 'react-icons/fi'
 
 import styles from './Bag.module.css'
-
-type BagTypes = {
-  items: number
-}
 
 export const Bag = ({ items }: BagTypes) => {
   return (

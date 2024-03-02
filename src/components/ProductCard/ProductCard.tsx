@@ -1,12 +1,8 @@
-import type { ProductType } from '@/shared/types'
 import Image from 'next/image'
 import Link from 'next/link'
+import type { ProductCardTypes } from './ProductCard.types'
 
 import styles from './ProductCard.module.css'
-
-type ProductCardTypes = {
-  product: ProductType
-}
 
 export const ProductCard = ({ product }: ProductCardTypes) => {
   const url = `/${product.status}/${product.id}`

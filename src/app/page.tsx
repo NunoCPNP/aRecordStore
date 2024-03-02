@@ -1,37 +1,16 @@
 import { Box } from '@/components'
-import { prisma } from '@/lib/prisma'
-import type { HomeTypes } from './page.types'
+import { getRecords } from '@/shared/services'
+import type { PageTypes, GetDataTypes } from './page.types'
 import { CategorySelector, ProductListing, Pagination } from '@/modules'
 
-async function getData({ params, searchParams }: HomeTypes) {
-  const { page = 1 } = searchParams
+async function getData({ searchParams }: GetDataTypes) {
   const itemsPerPage = 12
 
-  try {
-    const [count, products] = await prisma.$transaction([
-      prisma.product.count(),
-      prisma.product.findMany({
-        skip: page === 1 ? 0 : itemsPerPage * (page - 1),
-        take: 12,
-      }),
-    ])
-
-    return {
-      count,
-      products,
-      error: null,
-    }
-  } catch (error) {
-    return {
-      count: 0,
-      products: [],
-      error,
-    }
-  }
+  return await getRecords({ searchParams, itemsPerPage })
 }
 
-const Home = async ({ params, searchParams }: HomeTypes) => {
-  const { products, count } = await getData({ params, searchParams })
+const Page = async ({ searchParams }: PageTypes) => {
+  const { products, count } = await getData({ searchParams })
 
   return (
     <>
@@ -51,4 +30,4 @@ const Home = async ({ params, searchParams }: HomeTypes) => {
   )
 }
 
-export default Home
+export default Page

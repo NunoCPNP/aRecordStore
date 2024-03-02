@@ -1,18 +1,12 @@
-'use client'
-
+import Link from 'next/link'
 import { Dropdown } from '@/components'
 import { getLanguages } from '@/dictionaries'
-import { useRouter } from 'next/navigation'
 import { categories } from './CategorySelector.constants'
+import type { CategorySelectorTypes } from './CategorySelector.types'
 
 import styles from './CategorySelector.module.css'
 
-type CategorySelectorTypes = {
-  category?: string
-}
-
 export const CategorySelector = ({ category: activeCategory }: CategorySelectorTypes) => {
-  const router = useRouter()
   const t = getLanguages()
 
   return (
@@ -24,7 +18,7 @@ export const CategorySelector = ({ category: activeCategory }: CategorySelectorT
 
             return (
               <li key={category.id} className={activeCategory === category.category ? styles.selected : styles.item}>
-                <a onClick={() => router.push(url)}>{t[category.name]}</a>
+                <Link href={url}>{t[category.name]}</Link>
               </li>
             )
           })}

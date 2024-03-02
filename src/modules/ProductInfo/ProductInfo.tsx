@@ -1,20 +1,12 @@
 import Image from 'next/image'
-import { ProductType } from '@/shared/types'
 import { FiShoppingBag } from 'react-icons/fi'
+import { getLanguages } from '@/dictionaries'
+import type { ProductInfoTypes } from './ProductInfo.types'
 
 import styles from './ProductInfo.module.css'
 
-type ProductInfo = {
-  data: ProductType | null
-}
-
-const categoryMatch: { [key: string]: string } = {
-  new: 'Disco novo',
-  used: 'Disco usado',
-}
-
-export const ProductInfo = ({ data }: ProductInfo) => {
-  if (!data) return <div>to do</div>
+export const ProductInfo = ({ data }: ProductInfoTypes) => {
+  const t = getLanguages()
 
   return (
     <div className={styles.container}>
@@ -23,7 +15,7 @@ export const ProductInfo = ({ data }: ProductInfo) => {
       </div>
       <div className={styles.infoContainer}>
         <div>
-          <div>{categoryMatch[data.status]}</div>
+          <div>{t[`item_${data.status}`]}</div>
           <div className={styles.artist}>{data.artist}</div>
           <div>{data.title}</div>
           <div>{data.label}</div>
@@ -35,7 +27,7 @@ export const ProductInfo = ({ data }: ProductInfo) => {
         <div>
           <button className={styles.button}>
             <FiShoppingBag className={styles.icon} />
-            <span>Adicionar ao carrinho</span>
+            <span>{t['add_to_cart']}</span>
           </button>
         </div>
       </div>

@@ -1,9 +1,6 @@
-import { ProductType } from '@/shared/types'
+import type { ProductType } from '@/shared/types'
+import type { ProductListingTypes } from './ProductListing.types'
 import { ProductGrid, ProductCard } from '@/components'
-
-type ProductListingTypes = {
-  products: ProductType[]
-}
 
 export const ProductListing = ({ products }: ProductListingTypes) => {
   return (

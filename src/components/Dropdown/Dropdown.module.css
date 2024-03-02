@@ -27,8 +27,14 @@
   right: 0;
   width: 21rem;
   z-index: 10;
+  list-style: none;
 }
 
 .item {
   padding-bottom: 0.4rem;
+  cursor: pointer;
+}
+
+.item:hover {
+ font-weight: 600;
 }

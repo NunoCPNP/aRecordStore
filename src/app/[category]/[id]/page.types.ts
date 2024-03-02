@@ -1,8 +1,7 @@
 export interface GetDataTypes extends PageTypes {}
 
 export interface PageTypes {
-  searchParams: {
-    page: number
-    filter: 'new' | 'price_asc' | 'price_desc'
+  params: {
+    id: string
   }
 }

@@ -1,11 +1,7 @@
-import { ReactNode } from "react"
+import type { ComponentWithChildren } from '@/shared/types'
 
-import styles from "./ProductGrid.module.css"
+import styles from './ProductGrid.module.css'
 
-type ProductGridTypes = {
-    children: ReactNode
-}
-
-export const ProductGrid = ({ children }: ProductGridTypes) => {
-    return <div className={styles.grid}>{children}</div>
+export const ProductGrid = ({ children }: ComponentWithChildren) => {
+  return <div className={styles.grid}>{children}</div>
 }

@@ -1,13 +1,4 @@
-import { ElementType, ReactNode } from 'react'
-
-type BoxTypes = {
-  children: ReactNode
-  pt?: number
-  as?: ElementType
-  pr?: number
-  pb?: number
-  pl?: number
-}
+import type { BoxTypes } from './Box.types'
 
 export const Box = ({ children, as, pt, pr, pb, pl }: BoxTypes) => {
   const Component = as ? as : 'div'
