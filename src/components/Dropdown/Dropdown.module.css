@@ -1,5 +1,7 @@
 .wrapper {
   position: relative;
+  background: inherit;
+  border: inherit;
 }
 
 .container {
@@ -17,7 +19,7 @@
 }
 
 .panel {
-  padding: 1.2rem 1.6rem;
+  padding: 1.6rem 2rem;
   border-radius: var(--radius);
   color: var(--grey);
   background-color: var(--white);
@@ -25,16 +27,22 @@
   margin-top: 0.8rem;
   position: absolute;
   right: 0;
-  width: 21rem;
   z-index: 10;
   list-style: none;
+  width: 22rem;
 }
 
 .item {
-  padding-bottom: 0.4rem;
-  cursor: pointer;
+  text-align: left;
+  transition: font-weight 0.3s;
 }
 
 .item:hover {
- font-weight: 600;
+  font-weight: 600;
+}
+
+.item button {
+  background-color: inherit;
+  border: inherit;
+  cursor: pointer;
 }

@@ -24,7 +24,8 @@
     "precommit": "lint-staged",
     "prisma:generate": "prisma generate",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "type-check": "tsc"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

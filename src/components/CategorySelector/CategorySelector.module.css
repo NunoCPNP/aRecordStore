@@ -1,9 +1,3 @@
-.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .list {
   list-style-type: none;
   display: flex;
@@ -14,6 +8,13 @@
   text-transform: uppercase;
   color: var(--textDark);
   cursor: pointer;
+  transition: text-shadow 0.3s;
+}
+
+.item:hover {
+  text-shadow:
+    0 0 0.75px var(--textDark),
+    0 0 0.75px var(--textDark);
 }
 
 .selected {
@@ -22,8 +23,4 @@
   cursor: pointer;
   font-weight: 600;
   border-bottom: 4px solid var(--orange);
-}
-
-.dropdown {
-  border-bottom: 4px solid transparent;
 }

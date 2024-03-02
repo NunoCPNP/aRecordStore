@@ -1,9 +1,10 @@
-import type { BagTypes } from './Bag.types'
 import { FiShoppingBag } from 'react-icons/fi'
 
 import styles from './Bag.module.css'
 
-export const Bag = ({ items }: BagTypes) => {
+export const Bag = () => {
+  const items = 0
+
   return (
     <div className={styles.bag}>
       <FiShoppingBag className={styles.icon} />

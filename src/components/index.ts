@@ -1,5 +1,7 @@
 export * from './Bag'
+export * from './Brand'
 export * from './Box'
+export * from './CategorySelector'
 export * from './Dropdown'
 export * from './GoBack'
 export * from './ProductCard'

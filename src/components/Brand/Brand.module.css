@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+}
+
+.container a {
+  display: inherit;
+  align-items: center;
+
+  color: var(--textLight);
+}
+
+.logo {
+  display: inherit;
+  margin: 0 0.3rem;
+}

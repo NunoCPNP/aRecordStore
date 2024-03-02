@@ -1,6 +1,6 @@
 import { Box } from '@/components'
 import { getRecords } from '@/shared/services'
-import { CategorySelector, ProductListing, Pagination } from '@/modules'
+import { ProductFilters, ProductListing, Pagination } from '@/modules'
 import { GenerateMetadataTypes, GetDataTypes, PageTypes } from './page.types'
 
 export async function generateMetadata({ params }: GenerateMetadataTypes) {
@@ -26,7 +26,7 @@ const Page = async ({ params, searchParams }: PageTypes) => {
   return (
     <>
       <Box pt={3.4}>
-        <CategorySelector category={params.category} />
+        <ProductFilters category={params.category} />
       </Box>
       <Box pt={2.4}>
         <Pagination count={count} />

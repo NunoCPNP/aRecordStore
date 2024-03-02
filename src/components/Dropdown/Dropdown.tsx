@@ -10,7 +10,7 @@ import styles from './Dropdown.module.css'
 
 export const Dropdown = () => {
   const t = getLanguages()
-  const newRef = useRef<HTMLDivElement>(null)
+  const newRef = useRef<HTMLButtonElement>(null)
   const router = useRouter()
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -30,12 +30,10 @@ export const Dropdown = () => {
   })
 
   return (
-    <div className={styles.wrapper} ref={newRef} onClick={() => setIsOpen(!isOpen)}>
-      <div className={styles.container}>
+    <button className={styles.wrapper} ref={newRef} onClick={() => setIsOpen(!isOpen)}>
+      <div className={styles.container} data-testid="dropdown-trigger">
         <div>{selected ? selected : t['order_by']}</div>
-        <div data-testid="dropdown-trigger">
-          <FiChevronDown className={styles.icon} />
-        </div>
+        <FiChevronDown className={styles.icon} />
       </div>
       {isOpen && (
         <ul className={styles.panel} data-testid="dropdown-panel">
@@ -51,12 +49,12 @@ export const Dropdown = () => {
                 }}
                 data-testid={filter.testid}
               >
-                {t[filter.name]}
+                <button>{t[filter.name]}</button>
               </li>
             )
           })}
         </ul>
       )}
-    </div>
+    </button>
   )
 }

@@ -9,16 +9,26 @@
   list-style-type: none;
 }
 
+.list button {
+  background: none;
+  border: none;
+}
+
 .item {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 3.2rem;
-  height: 3.2rem;;
+  height: 3.2rem;
   border-radius: var(--radius);
   background-color: var(--pagination);
   color: var(--textPagination);
   cursor: pointer;
+  transition: font-weight 0.3s;
+}
+
+.item:hover {
+  font-weight: 600;
 }
 
 .selected {
@@ -26,16 +36,28 @@
   align-items: center;
   justify-content: center;
   width: 3.2rem;
-  height: 3.2rem;;
+  height: 3.2rem;
   border-radius: var(--radius);
   background-color: var(--paginationSelected);
   color: var(--orange);
   border: 1px solid var(--orange);
-  cursor: pointer;
 }
 
 .controls {
   display: grid;
   grid-template-columns: repeat(2, 3.2rem);
   grid-template-rows: 3.2rem;
+}
+
+.controls button {
+  background: none;
+  border: none;
+}
+
+.item svg {
+  transition: stroke-width 0.3s;
+}
+
+.item svg:hover {
+  stroke-width: 4;
 }

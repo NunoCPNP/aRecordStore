@@ -10,7 +10,7 @@ async function getData({ params }: GetDataTypes) {
 const Page = async ({ params }: PageTypes) => {
   const { product } = await getData({ params })
 
-  return <ProductInfo data={product as ProductType | null} />
+  return <ProductInfo data={product as ProductType} />
 }
 
 export default Page

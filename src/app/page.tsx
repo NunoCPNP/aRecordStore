@@ -1,7 +1,7 @@
 import { Box } from '@/components'
 import { getRecords } from '@/shared/services'
 import type { PageTypes, GetDataTypes } from './page.types'
-import { CategorySelector, ProductListing, Pagination } from '@/modules'
+import { ProductListing, Pagination, ProductFilters } from '@/modules'
 
 async function getData({ searchParams }: GetDataTypes) {
   const itemsPerPage = 12
@@ -15,7 +15,7 @@ const Page = async ({ searchParams }: PageTypes) => {
   return (
     <>
       <Box pt={3.4}>
-        <CategorySelector />
+        <ProductFilters />
       </Box>
       <Box pt={2.4}>
         <Pagination count={count} />
