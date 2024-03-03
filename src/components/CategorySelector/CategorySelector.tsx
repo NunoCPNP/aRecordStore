@@ -1,11 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { getLanguages } from '@/dictionaries'
+import { usePathname } from 'next/navigation'
 import { categories } from './CategorySelector.constants'
-import type { CategorySelectorTypes } from './CategorySelector.types'
 
 import styles from './CategorySelector.module.css'
 
-export const CategorySelector = ({ category: activeCategory }: CategorySelectorTypes) => {
+export const CategorySelector = () => {
+  const pathname = usePathname()
   const t = getLanguages()
 
   return (
@@ -15,7 +18,7 @@ export const CategorySelector = ({ category: activeCategory }: CategorySelectorT
           const url = category.category ? `/${category.category}` : '/'
 
           return (
-            <li key={category.id} className={activeCategory === category.category ? styles.selected : styles.item}>
+            <li key={category.id} className={pathname === url ? styles.selected : styles.item}>
               <Link href={url}>{t[category.name]}</Link>
             </li>
           )

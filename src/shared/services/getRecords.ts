@@ -28,33 +28,25 @@ export const getRecords = async ({ params, searchParams, itemsPerPage }: GetReco
   const { page, filter } = searchParams
 
   try {
-    const [count, products] = await prisma.$transaction([
-      prisma.product.count({
-        where: {
-          status: params?.category ? params.category : undefined,
-        },
-      }),
-      prisma.product.findMany({
-        skip: !page ? 0 : itemsPerPage * (page - 1),
-        take: 12,
-        where: {
-          status: params?.category ? params.category : undefined,
-        },
-        orderBy: {
-          price: getPriceFilter(filter),
-          date_added: getDateFilter(filter),
-        },
-      }),
-    ])
+    const products = await prisma.product.findMany({
+      skip: !page ? 0 : itemsPerPage * (page - 1),
+      take: 12,
+      where: {
+        status: params?.category ? params.category : undefined,
+      },
+      orderBy: {
+        price: getPriceFilter(filter),
+        date_added: getDateFilter(filter),
+      },
+    })
 
     return {
-      count,
       products,
-      error: null,
     }
   } catch (error) {
+    console.log('getRecords error', error)
+
     return {
-      count: 0,
       products: [],
       error,
     }

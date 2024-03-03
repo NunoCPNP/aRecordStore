@@ -1,15 +1,9 @@
 .container {
   display: flex;
   justify-content: flex-end;
-  height: 3.2rem;
 }
 
-.list {
-  display: flex;
-  list-style-type: none;
-}
-
-.list button {
+.container button {
   background: none;
   border: none;
 }
@@ -45,13 +39,7 @@
 
 .controls {
   display: grid;
-  grid-template-columns: repeat(2, 3.2rem);
-  grid-template-rows: 3.2rem;
-}
-
-.controls button {
-  background: none;
-  border: none;
+  grid-template-columns: repeat(2, auto);
 }
 
 .item svg {

@@ -10,7 +10,7 @@ async function getData({ searchParams }: GetDataTypes) {
 }
 
 const Page = async ({ searchParams }: PageTypes) => {
-  const { products, count } = await getData({ searchParams })
+  const { products } = await getData({ searchParams })
 
   return (
     <>
@@ -18,13 +18,13 @@ const Page = async ({ searchParams }: PageTypes) => {
         <ProductFilters />
       </Box>
       <Box pt={2.4}>
-        <Pagination count={count} />
+        <Pagination />
       </Box>
       <Box pt={3.2} as="section">
         <ProductListing products={products} />
       </Box>
       <Box pt={7.4}>
-        <Pagination count={count} />
+        <Pagination />
       </Box>
     </>
   )

@@ -18,12 +18,12 @@ export const getRecord = async ({ params }: GetRecordTypes) => {
 
     return {
       product,
-      error: null,
     }
   } catch (error) {
+    console.log('getRecord error', error)
+
     return {
       product: null,
-      error,
     }
   }
 }

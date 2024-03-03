@@ -7,8 +7,8 @@ export const ProductListing = ({ products }: ProductListingTypes) => {
   return (
     <ProductGrid>
       {products.map((product: ProductType) => (
-        <Suspense key={product.id} fallback={<div>Loading...</div>}>
-          <ProductCard key={product.id} product={product} />
+        <Suspense key={product.id}>
+          <ProductCard product={product} />
         </Suspense>
       ))}
     </ProductGrid>

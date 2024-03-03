@@ -1,12 +1,11 @@
 import { Dropdown, CategorySelector, Box } from '@/components'
-import { ProductFiltersTypes } from './ProductFilters.types'
 
 import styles from './ProductFilters.module.css'
 
-export const ProductFilters = ({ category }: ProductFiltersTypes) => {
+export const ProductFilters = () => {
   return (
     <div className={styles.container}>
-      <CategorySelector category={category} />
+      <CategorySelector />
       <Box pb={0.5}>
         <Dropdown />
       </Box>

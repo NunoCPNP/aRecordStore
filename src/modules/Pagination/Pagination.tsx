@@ -1,22 +1,39 @@
 'use client'
 
-import type { PaginationTypes } from './Pagination.types'
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import styles from './Pagination.module.css'
 
-export const Pagination = ({ count }: PaginationTypes) => {
+export const Pagination = () => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(5)
+  const [count, setCount] = useState(0)
 
   const page = searchParams.get('page') || 1
   const filter = searchParams.get('filter')
   const totalPages = Math.ceil(count / 12)
+
+  useEffect(() => {
+    const category = pathname.slice(1) || undefined
+
+    const fetchCount = async () => {
+      const response = await fetch('/api/count', {
+        method: 'POST',
+        body: JSON.stringify({ category }),
+      })
+
+      const data = await response.json()
+
+      setCount(data)
+    }
+
+    fetchCount()
+  }, [pathname])
 
   const buildUrl = useCallback(
     (page: number, filter: string) => router.push(`${pathname}?page=${page}${filter ? `&filter=${filter}` : ''}`),
@@ -24,25 +41,19 @@ export const Pagination = ({ count }: PaginationTypes) => {
   )
 
   const pageNumbers = useMemo(() => {
-    const pagesNumbers: number[] = []
-
-    for (let i = 1; i <= totalPages; i++) {
-      pagesNumbers.push(i)
-    }
-
-    return pagesNumbers
+    return Array.from({ length: totalPages }, (_, index) => index + 1)
   }, [totalPages])
 
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
+      <div className={styles.list}>
         {pageNumbers.slice(start, end).map((number) => (
           <button key={number} onClick={() => buildUrl(number, filter!)}>
-            <li className={number === Number(page) ? styles.selected : styles.item}>{number}</li>
+            <div className={number === Number(page) ? styles.selected : styles.item}>{number}</div>
           </button>
         ))}
-      </ul>
-      <ul className={styles.controls}>
+      </div>
+      <div className={styles.controls}>
         <button
           aria-label="previous page"
           onClick={() => {
@@ -52,9 +63,9 @@ export const Pagination = ({ count }: PaginationTypes) => {
             }
           }}
         >
-          <li className={styles.item}>
+          <div className={styles.item}>
             <FiChevronLeft />
-          </li>
+          </div>
         </button>
         <button
           aria-label="next page"
@@ -65,11 +76,11 @@ export const Pagination = ({ count }: PaginationTypes) => {
             }
           }}
         >
-          <li className={styles.item}>
+          <div className={styles.item}>
             <FiChevronRight />
-          </li>
+          </div>
         </button>
-      </ul>
+      </div>
     </div>
   )
 }
