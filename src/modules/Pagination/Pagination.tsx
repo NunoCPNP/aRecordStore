@@ -44,6 +44,7 @@ export const Pagination = ({ count }: PaginationTypes) => {
       </ul>
       <ul className={styles.controls}>
         <button
+          aria-label="previous page"
           onClick={() => {
             if (start > 0) {
               setStart((s) => s - 1)
@@ -56,6 +57,7 @@ export const Pagination = ({ count }: PaginationTypes) => {
           </li>
         </button>
         <button
+          aria-label="next page"
           onClick={() => {
             if (end < totalPages) {
               setStart((s) => s + 1)
