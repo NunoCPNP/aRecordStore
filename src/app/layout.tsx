@@ -1,5 +1,6 @@
 import { Saira } from 'next/font/google'
 import { Footer, Header } from '@/modules'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import type { ComponentWithChildren } from '@/shared/types'
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: ComponentWithChildren) {
         <Header />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
