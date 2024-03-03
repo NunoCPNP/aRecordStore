@@ -1,7 +1,8 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { PaginationSkeleton } from './Pagination.skeleton'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 import styles from './Pagination.module.css'
@@ -18,20 +19,19 @@ export const Pagination = () => {
   const filter = searchParams.get('filter')
   const totalPages = Math.ceil(count / 12)
 
-  useEffect(() => {
+  const fetchCount = async () => {
     const category = pathname.slice(1) || undefined
+    const response = await fetch('/api/count', {
+      method: 'POST',
+      body: JSON.stringify({ category }),
+    })
 
-    const fetchCount = async () => {
-      const response = await fetch('/api/count', {
-        method: 'POST',
-        body: JSON.stringify({ category }),
-      })
+    const data = await response.json()
 
-      const data = await response.json()
+    setCount(data)
+  }
 
-      setCount(data)
-    }
-
+  useEffect(() => {
     fetchCount()
   }, [pathname])
 
@@ -44,9 +44,24 @@ export const Pagination = () => {
     return Array.from({ length: totalPages }, (_, index) => index + 1)
   }, [totalPages])
 
+  const handleNextPage = () => {
+    if (end < totalPages) {
+      setStart((s) => s + 1)
+      setEnd((e) => e + 1)
+    }
+  }
+
+  const handlePreviousPage = () => {
+    if (start > 0) {
+      setStart((s) => s - 1)
+      setEnd((e) => e - 1)
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.list}>
+        <PaginationSkeleton pageNumbers={pageNumbers} />
         {pageNumbers.slice(start, end).map((number) => (
           <button key={number} onClick={() => buildUrl(number, filter!)}>
             <div className={number === Number(page) ? styles.selected : styles.item}>{number}</div>
@@ -54,28 +69,12 @@ export const Pagination = () => {
         ))}
       </div>
       <div className={styles.controls}>
-        <button
-          aria-label="previous page"
-          onClick={() => {
-            if (start > 0) {
-              setStart((s) => s - 1)
-              setEnd((e) => e - 1)
-            }
-          }}
-        >
+        <button aria-label="previous page" onClick={handlePreviousPage}>
           <div className={styles.item}>
             <FiChevronLeft />
           </div>
         </button>
-        <button
-          aria-label="next page"
-          onClick={() => {
-            if (end < totalPages) {
-              setStart((s) => s + 1)
-              setEnd((e) => e + 1)
-            }
-          }}
-        >
+        <button aria-label="next page" onClick={handleNextPage}>
           <div className={styles.item}>
             <FiChevronRight />
           </div>

@@ -49,3 +49,14 @@
 .item svg:hover {
   stroke-width: 4;
 }
+
+.skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: var(--radius);
+  background-color: var(--pagination);
+  color: transparent;
+}
