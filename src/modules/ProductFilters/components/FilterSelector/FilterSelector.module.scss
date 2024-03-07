@@ -1,15 +1,15 @@
-.wrapper {
+.container {
   position: relative;
   background: inherit;
   border: inherit;
-}
 
-.container {
-  display: flex;
-  align-items: center;
-  color: var(--grey);
-  font-size: 1.4rem;
-  cursor: pointer;
+  div {
+    display: flex;
+    align-items: center;
+    color: var(--grey);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
 }
 
 .icon {
@@ -33,6 +33,21 @@
   animation: open-panel 0.1s linear;
 }
 
+.item {
+  text-align: left;
+  transition: font-weight 0.3s;
+
+  button {
+    background-color: inherit;
+    border: inherit;
+    cursor: pointer;
+  }
+}
+
+.item:hover {
+  font-weight: 600;
+}
+
 @keyframes open-panel {
   from {
     opacity: 0;
@@ -40,19 +55,4 @@
   to {
     opacity: 1;
   }
-}
-
-.item {
-  text-align: left;
-  transition: font-weight 0.3s;
-}
-
-.item:hover {
-  font-weight: 600;
-}
-
-.item button {
-  background-color: inherit;
-  border: inherit;
-  cursor: pointer;
 }

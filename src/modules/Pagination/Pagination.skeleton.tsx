@@ -1,6 +1,6 @@
 import type { PaginationSkeltonTypes } from './Pagination.types'
 
-import styles from './Pagination.module.css'
+import styles from './Pagination.module.scss'
 
 export const PaginationSkeleton = ({ pageNumbers }: PaginationSkeltonTypes) => (
   <>

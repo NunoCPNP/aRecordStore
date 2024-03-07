@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { ProductGrid, ProductCard } from '@/components'
+import { ProductGrid, ProductCard } from './components'
 
 import type { ProductType } from '@/shared/types'
 import type { ProductListingTypes } from './ProductListing.types'

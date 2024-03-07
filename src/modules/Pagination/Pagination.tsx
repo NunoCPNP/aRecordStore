@@ -5,7 +5,7 @@ import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
-import styles from './Pagination.module.css'
+import styles from './Pagination.module.scss'
 
 export const Pagination = () => {
   const router = useRouter()

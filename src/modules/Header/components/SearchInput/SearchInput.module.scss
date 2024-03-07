@@ -1,3 +1,11 @@
+.search {
+  margin-right: 2.4rem;
+  color: var(--grey);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .input {
   width: 25em;
   height: 4.2rem;
@@ -7,16 +15,8 @@
   padding-left: 1.6rem;
 }
 
-.search {
-  margin-right: 2.4rem;
-  color: var(--grey);
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
 .searchIcon {
   position: absolute;
   font-size: 2.4rem;
-  right: 16px;
+  right: 1.6rem;
 }

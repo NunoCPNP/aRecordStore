@@ -1,8 +1,8 @@
+@import '../Iconography.styles.scss';
+
 .container {
-  position: relative;
+  @include button;
   color: var(--grey);
-  display: flex;
-  align-items: center;
 }
 
 .icon {

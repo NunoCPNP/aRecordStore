@@ -6,7 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import type { Metadata } from 'next'
 import type { ComponentWithChildren } from '@/shared/types'
 
-import '@/styles/global.css'
+import '@/styles/global.scss'
 
 const inter = Saira({ subsets: ['latin'] })
 

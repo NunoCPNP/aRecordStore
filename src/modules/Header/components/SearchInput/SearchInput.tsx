@@ -1,9 +1,9 @@
 import { FiSearch } from 'react-icons/fi'
 import { getLanguages } from '@/dictionaries'
 
-import styles from './SearchBox.module.css'
+import styles from './SearchInput.module.scss'
 
-export const SearchBox = () => {
+export const SearchInput = () => {
   const t = getLanguages()
 
   return (

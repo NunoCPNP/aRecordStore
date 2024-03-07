@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 
 import type { DrawerTypes } from './Drawer.types'
 
-import styles from './Drawer.module.css'
+import styles from './Drawer.module.scss'
 
 export const Drawer = ({ touchPoint, content }: DrawerTypes) => {
   const [isOpen, setIsOpen] = useState(false)

@@ -1,6 +1,6 @@
 import { FiHeart } from 'react-icons/fi'
 
-import styles from './WishlistIcon.module.css'
+import styles from './WishlistIcon.module.scss'
 
 export const WishlistIcon = ({ items = 0 }) => {
   return (

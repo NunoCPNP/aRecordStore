@@ -6,17 +6,17 @@
   grid-template-rows: 25rem 1fr;
   max-width: 25rem;
   transition: transform 0.2s;
+
+  img {
+    object-fit: cover;
+    width: 25rem;
+    height: 25rem;
+  }
 }
 
 .container:hover {
   outline: 2px solid var(--orange);
   transform: scale(1.02);
-}
-
-.image img {
-  object-fit: cover;
-  width: 25rem;
-  height: 25rem;
 }
 
 .info {

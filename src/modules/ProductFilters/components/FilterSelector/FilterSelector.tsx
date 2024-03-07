@@ -1,14 +1,14 @@
 'use client'
 
-import { filters } from './Dropdown.constants'
+import { filters } from './FilterSelector.constants'
 import { getLanguages } from '@/dictionaries'
 import { FiChevronDown } from 'react-icons/fi'
 import { useRef, useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
-import styles from './Dropdown.module.css'
+import styles from './FilterSelector.module.scss'
 
-export const Dropdown = () => {
+export const FilterSelector = () => {
   const t = getLanguages()
   const ref = useRef<HTMLButtonElement>(null)
   const router = useRouter()
@@ -30,8 +30,8 @@ export const Dropdown = () => {
   })
 
   return (
-    <button className={styles.wrapper} ref={ref} onClick={() => setIsOpen(!isOpen)}>
-      <div className={styles.container} data-testid="dropdown-trigger">
+    <button className={styles.container} ref={ref} onClick={() => setIsOpen(!isOpen)}>
+      <div data-testid="dropdown-trigger">
         <div>{selected ? selected : t['order_by']}</div>
         <FiChevronDown className={styles.icon} />
       </div>

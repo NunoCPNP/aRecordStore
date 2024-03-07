@@ -4,14 +4,14 @@ import { shimmer, toBase64 } from '@/shared/functions'
 
 import type { ProductCardTypes } from './ProductCard.types'
 
-import styles from './ProductCard.module.css'
+import styles from './ProductCard.module.scss'
 
 export const ProductCard = ({ product }: ProductCardTypes) => {
   const url = `/${product.status}/${product.id}`
 
   return (
     <Link href={url} className={styles.container}>
-      <div className={styles.image}>
+      <div>
         <Image
           src={product.cover_image}
           alt={`${product.title} cover`}

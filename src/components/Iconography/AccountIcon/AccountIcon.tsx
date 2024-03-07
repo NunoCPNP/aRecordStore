@@ -1,6 +1,6 @@
 import { FiUser } from 'react-icons/fi'
 
-import styles from './AccountIcon.module.css'
+import styles from './AccountIcon.module.scss'
 
 export const AccountIcon = () => {
   return (

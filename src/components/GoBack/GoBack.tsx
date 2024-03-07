@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { getLanguages } from '@/dictionaries'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
-import styles from './GoBack.module.css'
+import styles from './GoBack.module.scss'
 
 export const GoBack = () => {
   const router = useRouter()

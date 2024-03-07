@@ -1,6 +1,6 @@
 import { FiShoppingBag } from 'react-icons/fi'
 
-import styles from './ShoppingBagIcon.module.css'
+import styles from './ShoppingBagIcon.module.scss'
 
 export const ShoppingBagIcon = ({ items = 0 }) => {
   return (

@@ -4,7 +4,7 @@ import { getLanguages } from '@/dictionaries'
 
 import type { ProductInfoTypes } from './ProductInfo.types'
 
-import styles from './ProductInfo.module.css'
+import styles from './ProductInfo.module.scss'
 
 export const ProductInfo = ({ data }: ProductInfoTypes) => {
   const t = getLanguages()

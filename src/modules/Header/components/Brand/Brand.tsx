@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import styles from './Brand.module.css'
+import styles from './Brand.module.scss'
 
 export const Brand = () => (
   <div className={styles.container}>

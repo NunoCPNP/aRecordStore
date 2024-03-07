@@ -1,13 +1,17 @@
-.list {
+@mixin item {
+  text-transform: uppercase;
+  color: var(--textDark);
+  cursor: pointer;
+}
+
+.container {
   list-style-type: none;
   display: flex;
   gap: 4rem;
 }
 
 .item {
-  text-transform: uppercase;
-  color: var(--textDark);
-  cursor: pointer;
+  @include item;
   transition: text-shadow 0.3s;
 }
 
@@ -18,9 +22,7 @@
 }
 
 .selected {
-  text-transform: uppercase;
-  color: var(--textDark);
-  cursor: pointer;
+  @include item;
   font-weight: 600;
   border-bottom: 4px solid var(--orange);
 }
