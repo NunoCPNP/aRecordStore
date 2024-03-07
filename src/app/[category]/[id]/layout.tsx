@@ -1,11 +1,6 @@
 import { Box, GoBack } from '@/components'
-import type { Metadata } from 'next'
-import type { ComponentWithChildren } from '@/shared/types'
 
-export const metadata: Metadata = {
-  title: 'London Calling',
-  description: 'Record Shop web application for demonstration purposes only',
-}
+import type { ComponentWithChildren } from '@/shared/types'
 
 export default function RootLayout({ children }: ComponentWithChildren) {
   return (

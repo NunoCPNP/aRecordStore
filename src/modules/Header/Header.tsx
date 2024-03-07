@@ -1,4 +1,4 @@
-import { SearchBox, Bag, Brand } from '@/components'
+import { SearchBox, Iconography, Brand } from '@/components'
 
 import styles from './Header.module.css'
 
@@ -7,7 +7,11 @@ export const Header = () => (
     <div className={styles.header}>
       <Brand />
       <SearchBox />
-      <Bag />
+      <div className={styles.icons}>
+        <Iconography icon="account" />
+        <Iconography icon="wishlist" />
+        <Iconography icon="shopping-bag" items={1} />
+      </div>
     </div>
   </header>
 )

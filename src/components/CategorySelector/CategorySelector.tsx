@@ -8,6 +8,7 @@ import { categories } from './CategorySelector.constants'
 import styles from './CategorySelector.module.css'
 
 export const CategorySelector = () => {
+  // const params = useParams<{ tag: string; item: string }>()
   const pathname = usePathname()
   const t = getLanguages()
 

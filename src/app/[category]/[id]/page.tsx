@@ -1,6 +1,7 @@
 import { ProductType } from '@/shared/types'
 import { ProductInfo } from '@/modules'
 import { getRecord } from '@/shared/services'
+
 import { PageTypes, GetDataTypes } from './page.types'
 
 async function getData({ params }: GetDataTypes) {

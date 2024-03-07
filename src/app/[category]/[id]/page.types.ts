@@ -1,6 +1,6 @@
 export interface GetDataTypes extends PageTypes {}
 
-export interface PageTypes {
+export type PageTypes = {
   params: {
     id: string
   }

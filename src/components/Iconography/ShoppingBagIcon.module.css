@@ -1,6 +1,5 @@
-.bag {
+.container {
   position: relative;
-  margin-right: 1rem;
   color: var(--grey);
   display: flex;
   align-items: center;
@@ -15,7 +14,7 @@
   position: absolute;
   justify-content: center;
   align-items: center;
-  width:1.7rem;
+  width: 1.7rem;
   height: 1.7rem;
   border-radius: 2rem;
   background-color: var(--red);

@@ -1,5 +1,5 @@
-import { getLanguages } from '@/dictionaries'
 import { FiSearch } from 'react-icons/fi'
+import { getLanguages } from '@/dictionaries'
 
 import styles from './SearchBox.module.css'
 

@@ -1,7 +1,8 @@
 import { Box } from '@/components'
 import { getRecords } from '@/shared/services'
-import type { PageTypes, GetDataTypes } from './page.types'
 import { ProductListing, Pagination, ProductFilters } from '@/modules'
+
+import type { PageTypes, GetDataTypes } from './page.types'
 
 async function getData({ searchParams }: GetDataTypes) {
   const itemsPerPage = 12

@@ -1,7 +1,8 @@
 import { Box } from '@/components'
 import { getRecords } from '@/shared/services'
 import { ProductFilters, ProductListing, Pagination } from '@/modules'
-import { GenerateMetadataTypes, GetDataTypes, PageTypes } from './page.types'
+
+import type { GenerateMetadataTypes, GetDataTypes, PageTypes } from './page.types'
 
 export async function generateMetadata({ params }: GenerateMetadataTypes) {
   const categories = {

@@ -1,7 +1,8 @@
 import { Suspense } from 'react'
+import { ProductGrid, ProductCard } from '@/components'
+
 import type { ProductType } from '@/shared/types'
 import type { ProductListingTypes } from './ProductListing.types'
-import { ProductGrid, ProductCard } from '@/components'
 
 export const ProductListing = ({ products }: ProductListingTypes) => {
   return (

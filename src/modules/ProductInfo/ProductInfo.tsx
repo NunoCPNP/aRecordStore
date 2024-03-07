@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { FiShoppingBag } from 'react-icons/fi'
 import { getLanguages } from '@/dictionaries'
+
 import type { ProductInfoTypes } from './ProductInfo.types'
 
 import styles from './ProductInfo.module.css'

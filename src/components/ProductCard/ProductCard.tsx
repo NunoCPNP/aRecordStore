@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { shimmer, toBase64 } from '@/shared/functions'
+
 import type { ProductCardTypes } from './ProductCard.types'
 
 import styles from './ProductCard.module.css'

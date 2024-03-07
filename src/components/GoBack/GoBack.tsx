@@ -1,7 +1,7 @@
 'use client'
 
-import { getLanguages } from '@/dictionaries'
 import { useRouter } from 'next/navigation'
+import { getLanguages } from '@/dictionaries'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
 import styles from './GoBack.module.css'
@@ -11,9 +11,9 @@ export const GoBack = () => {
   const t = getLanguages()
 
   return (
-    <div className={styles.container} onClick={() => router.back()}>
+    <button className={styles.container} onClick={() => router.back()}>
       <FiArrowLeftCircle className={styles.icon} />
       <span>{t.go_back}</span>
-    </div>
+    </button>
   )
 }
