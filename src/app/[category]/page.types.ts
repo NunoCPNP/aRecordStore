@@ -7,5 +7,3 @@ export interface PageTypes {
     filter: 'new' | 'price_asc' | 'price_desc'
   }
 }
-
-export interface GetDataTypes extends PageTypes {}

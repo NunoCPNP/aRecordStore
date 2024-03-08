@@ -1,5 +1,3 @@
-export interface GetDataTypes extends PageTypes {}
-
 export interface PageTypes {
   searchParams: {
     page: number

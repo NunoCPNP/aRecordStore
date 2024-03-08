@@ -1,3 +1,3 @@
-export type PaginationSkeltonTypes = {
+export type PaginationSkeletonTypes = {
   pageNumbers: number[]
 }

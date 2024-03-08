@@ -1,17 +1,11 @@
 import { Box } from '@/components'
-import { getRecords } from '@/shared/services'
-import { ProductFilters, ProductListing, Pagination } from '@/modules'
+import { Suspense } from 'react'
+import { ProductFilters, ProductListing, Pagination, ProductListingSkeleton } from '@/modules'
 
-import type { GetDataTypes, PageTypes } from './page.types'
-
-async function getData({ params, searchParams }: GetDataTypes) {
-  const itemsPerPage = 12
-
-  return await getRecords({ params, searchParams, itemsPerPage })
-}
+import type { PageTypes } from './page.types'
 
 const Page = async ({ params, searchParams }: PageTypes) => {
-  const { products } = await getData({ params, searchParams })
+  const key = searchParams.page || searchParams.filter
 
   return (
     <>
@@ -22,7 +16,9 @@ const Page = async ({ params, searchParams }: PageTypes) => {
         <Pagination />
       </Box>
       <Box pt={3.2} as="section">
-        <ProductListing products={products} />
+        <Suspense key={key} fallback={<ProductListingSkeleton />}>
+          <ProductListing params={params} searchParams={searchParams} />
+        </Suspense>
       </Box>
       <Box pt={7.4}>
         <Pagination />

@@ -1,5 +1,6 @@
 'use client'
 
+import { ITEMS_PER_PAGE } from '@/shared/constants'
 import { PaginationSkeleton } from './Pagination.skeleton'
 import { FiChevronRight, FiChevronLeft } from 'react-icons/fi'
 import { useCallback, useEffect, useMemo, useState } from 'react'
@@ -11,13 +12,13 @@ export const Pagination = () => {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
-  const [start, setStart] = useState(0)
-  const [end, setEnd] = useState(5)
-  const [count, setCount] = useState(0)
+  const [start, setStart] = useState<number>(0)
+  const [end, setEnd] = useState<number>(5)
+  const [count, setCount] = useState<number>(0)
 
   const page = searchParams.get('page') || 1
   const filter = searchParams.get('filter')
-  const totalPages = Math.ceil(count / 12)
+  const totalPages = Math.ceil(count / ITEMS_PER_PAGE)
 
   const fetchCount = async () => {
     const category = pathname.slice(1) || undefined
@@ -58,10 +59,11 @@ export const Pagination = () => {
     }
   }
 
+  if (pageNumbers.length === 0) return <PaginationSkeleton />
+
   return (
     <div className={styles.container}>
       <div className={styles.list}>
-        <PaginationSkeleton pageNumbers={pageNumbers} />
         {pageNumbers.slice(start, end).map((number) => (
           <button key={number} onClick={() => buildUrl(number, filter!)}>
             <div className={number === Number(page) ? styles.selected : styles.item}>{number}</div>
