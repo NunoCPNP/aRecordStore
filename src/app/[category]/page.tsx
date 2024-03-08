@@ -2,18 +2,7 @@ import { Box } from '@/components'
 import { getRecords } from '@/shared/services'
 import { ProductFilters, ProductListing, Pagination } from '@/modules'
 
-import type { GenerateMetadataTypes, GetDataTypes, PageTypes } from './page.types'
-
-export async function generateMetadata({ params }: GenerateMetadataTypes) {
-  const categories = {
-    new: 'Discos Novos',
-    used: 'Discos Usados',
-  }
-
-  return {
-    title: categories[params.category],
-  }
-}
+import type { GetDataTypes, PageTypes } from './page.types'
 
 async function getData({ params, searchParams }: GetDataTypes) {
   const itemsPerPage = 12

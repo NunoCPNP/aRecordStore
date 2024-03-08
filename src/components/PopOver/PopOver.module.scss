@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+}
+
+.content {
+  padding: 1.6rem 2rem;
+  border-radius: var(--radius);
+  color: var(--grey);
+  background-color: var(--white);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 0.8rem;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  animation: open 0.1s linear;
+}
+
+@keyframes open {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

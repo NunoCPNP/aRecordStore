@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { notFound } from 'next/navigation'
 
 interface GetRecordTypes {
   params: {
@@ -22,8 +23,6 @@ export const getRecord = async ({ params }: GetRecordTypes) => {
   } catch (error) {
     console.log('getRecord error', error)
 
-    return {
-      product: null,
-    }
+    return notFound()
   }
 }

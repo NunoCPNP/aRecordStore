@@ -9,9 +9,3 @@ export interface PageTypes {
 }
 
 export interface GetDataTypes extends PageTypes {}
-
-export type GenerateMetadataTypes = {
-  params: {
-    category: 'used' | 'new'
-  }
-}

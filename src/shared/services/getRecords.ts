@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { notFound } from 'next/navigation'
 
 const getPriceFilter = (filter: string) => {
   switch (filter) {
@@ -46,9 +47,6 @@ export const getRecords = async ({ params, searchParams, itemsPerPage }: GetReco
   } catch (error) {
     console.log('getRecords error', error)
 
-    return {
-      products: [],
-      error,
-    }
+    return notFound()
   }
 }

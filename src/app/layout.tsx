@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description: 'The record store shop web application',
 }
 
-export default function RootLayout({ children }: ComponentWithChildren) {
+const RootLayout = ({ children }: ComponentWithChildren) => {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -31,3 +31,5 @@ export default function RootLayout({ children }: ComponentWithChildren) {
     </html>
   )
 }
+
+export default RootLayout
