@@ -1,6 +1,5 @@
-import { Suspense } from 'react'
-import { ProductGrid, ProductCard } from './components'
 import { getRecords } from '@/shared/services'
+import { ProductGrid, ProductCard } from './components'
 
 import type { ProductType } from '@/shared/types'
 import type { ProductListingTypes, GetDataTypes } from './ProductListing.types'
@@ -17,9 +16,7 @@ export const ProductListing = async ({ params, searchParams }: ProductListingTyp
   return (
     <ProductGrid>
       {products.map((product: ProductType) => (
-        <Suspense key={product.id}>
-          <ProductCard product={product} />
-        </Suspense>
+        <ProductCard key={product.id} product={product} />
       ))}
     </ProductGrid>
   )

@@ -20,15 +20,15 @@ export const ProductCard = ({ product }: ProductCardTypes) => {
           sizes="100vw"
           className={styles.image}
           placeholder="blur"
-          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(200, 245))}`}
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(250, 250))}`}
         />
       </div>
       <div className={styles.info}>
         <div>
-          <div className={styles.artist}>{product.artist}</div>
-          <div className={styles.title}>{product.title}</div>
+          <p className={styles.artist}>{product.artist}</p>
+          <p className={styles.title}>{product.title}</p>
         </div>
-        <div className={styles.price}>{product.price} €</div>
+        <p className={styles.price}>{product.price} €</p>
       </div>
     </Link>
   )
