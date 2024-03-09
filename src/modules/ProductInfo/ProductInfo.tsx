@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useShoppingBag } from '@/hooks'
 import { FiShoppingBag } from 'react-icons/fi'
 import { getLanguages } from '@/dictionaries'
 
@@ -8,6 +11,7 @@ import styles from './ProductInfo.module.scss'
 
 export const ProductInfo = ({ data }: ProductInfoTypes) => {
   const t = getLanguages()
+  const { items, setItems } = useShoppingBag()
 
   return (
     <div className={styles.container}>
@@ -26,7 +30,16 @@ export const ProductInfo = ({ data }: ProductInfoTypes) => {
           <div className={styles.price}>{data.price} €</div>
         </div>
         <div>
-          <button className={styles.button}>
+          <button
+            className={styles.button}
+            onClick={() => {
+              const temp = [...items]
+
+              temp.push({ id: data.id })
+
+              setItems(temp)
+            }}
+          >
             <FiShoppingBag className={styles.icon} />
             <span>{t['add_to_cart']}</span>
           </button>

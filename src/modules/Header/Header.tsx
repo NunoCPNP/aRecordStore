@@ -1,5 +1,5 @@
 import { Iconography } from '@/components'
-import { Brand, SearchInput, ShoppingBag } from './components'
+import { Brand, SearchInput, ShoppingBagIcon } from './components'
 
 import styles from './Header.module.scss'
 
@@ -11,7 +11,7 @@ export const Header = () => (
       <div className={styles.icons}>
         <Iconography icon="account" />
         <Iconography icon="wishlist" />
-        <ShoppingBag />
+        <ShoppingBagIcon />
       </div>
     </div>
   </header>

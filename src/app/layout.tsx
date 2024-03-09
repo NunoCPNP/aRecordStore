@@ -1,4 +1,5 @@
 import { Saira } from 'next/font/google'
+import { Providers } from '@/Context'
 import { Footer, Header } from '@/modules'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
@@ -15,16 +16,18 @@ export const metadata: Metadata = {
     default: 'The Record Store',
     template: '%s - The Record Store',
   },
-  description: 'The record store shop web application',
+  description: 'The record store web application',
 }
 
 const RootLayout = ({ children }: ComponentWithChildren) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
         <Analytics />
         <SpeedInsights />
       </body>
