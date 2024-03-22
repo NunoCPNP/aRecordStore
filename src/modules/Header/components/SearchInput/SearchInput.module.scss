@@ -20,3 +20,13 @@
   font-size: 2.4rem;
   right: 1.6rem;
 }
+
+.searchButton {
+  position: absolute;
+  border-radius: var(--radius);
+  background-color: var(--separator);
+  padding: 0 1rem;
+  border: none;
+  right: 1.6rem;
+  cursor: pointer;
+}
