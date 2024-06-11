@@ -13,5 +13,6 @@
         "therecordstore",
         "tsup",
         "Vercel"
-    ]
+    ],
+        "editor.defaultFormatter": "esbenp.prettier-vscode" 
 }
