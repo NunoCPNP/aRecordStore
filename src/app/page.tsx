@@ -5,7 +5,7 @@ import { ProductListing, Pagination, ProductFilters, ProductListingSkeleton } fr
 import type { PageTypes } from './page.types'
 
 const Page = ({ searchParams }: PageTypes) => {
-  const key = searchParams.page || searchParams.filter
+  const key = `${searchParams.page}${searchParams.filter}`
 
   return (
     <>
