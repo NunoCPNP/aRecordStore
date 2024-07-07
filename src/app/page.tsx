@@ -7,6 +7,8 @@ import type { PageTypes } from './page.types'
 const Page = ({ searchParams }: PageTypes) => {
   const key = `${searchParams.page}${searchParams.filter}`
 
+
+  
   return (
     <>
       <Box pt={3.4}>
